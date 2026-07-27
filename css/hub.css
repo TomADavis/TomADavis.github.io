@@ -293,5 +293,12 @@
 
 @media (max-width: 600px) {
   .player-screen { aspect-ratio: 4 / 3; }
-  .project-icon { width: 92px; }
+
+  .player-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+
+  .project-icon { width: auto; }
 }

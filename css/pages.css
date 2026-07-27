@@ -413,3 +413,14 @@
   .module-table th,
   .module-table td { padding: 0.4rem 0.4rem; }
 }
+
+@media (max-width: 480px) {
+  .module-table th:first-child,
+  .module-table td:first-child {
+    display: none;
+  }
+
+  .module-table { font-size: 0.72rem; }
+  .module-table th,
+  .module-table td { padding: 0.4rem 0.3rem; }
+}

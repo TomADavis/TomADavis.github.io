@@ -86,5 +86,7 @@ body {
 
 @media (max-width: 600px) {
   .page-nav { padding: 1rem 1.25rem; }
-  .page-nav .links a { margin-left: 1rem; }
+  .page-nav .brand { font-size: 0.95rem; }
+  .page-nav .links { white-space: nowrap; }
+  .page-nav .links a { margin-left: 0.75rem; font-size: 0.82rem; }
 }
