@@ -1,0 +1,90 @@
+/* ============================================
+   Shared tokens + reset + nav, used by every page on the site.
+   ============================================ */
+
+:root {
+  --bg: #12141a;
+  --bg-raised: #1b1e26;
+  --bg-card: #20242e;
+  --line: #2c3140;
+  --text: #eef0f4;
+  --text-dim: #9aa1b0;
+  --accent: #ffb84d;      /* warm amber — reads like an old CRT / arcade marquee */
+  --accent-dim: #7a5a2a;
+  --accent-soft: rgba(255, 184, 77, 0.12);
+  --danger: #e5636b;
+  --radius: 10px;
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: rgba(18, 20, 26, 0.92);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.page-nav .brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.page-nav .links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  margin-left: 1.75rem;
+  font-size: 0.92rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+}
+
+.page-nav .links a:hover,
+.page-nav .links a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.empty-state {
+  max-width: 880px;
+  margin: 0 auto 4rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: var(--text-dim);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.empty-state code {
+  background: var(--bg-raised);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .page-nav { padding: 1rem 1.25rem; }
+  .page-nav .links a { margin-left: 1rem; }
+}

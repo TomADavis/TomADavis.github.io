@@ -1,0 +1,62 @@
+[
+  {
+    "id": "fabled-realm",
+    "title": "Fabled Realm",
+    "tagline": "A Pokémon-inspired A-Level coursework game",
+    "description": "A Pokémon-inspired creature-catching game built for A-Level Computer Science coursework. Pick a starter, catch monsters out in the world, and battle with your team. The battle system was refactored from tangled procedural code into a state machine partway through development for maintainability.",
+    "tech": ["Python", "pygame"],
+    "repo_url": "https://github.com/TomADavis/A-Level-Computer-Science-Course-Work",
+    "thumbnail": "images/projects/fabled-realm.png",
+    "embed_mode": "fallback",
+    "embed_url": null,
+    "roadmap_note": "Made before I had come up with the idea to add online web-demo, sorry!!"
+  },
+  {
+    "id": "portfolio-original",
+    "title": "This Portfolio Website (Original)",
+    "tagline": "The first version of this site — kept as a before-and-after",
+    "description": "The original version of my portfolio: a single scrolling page where each project section fetched its README straight from GitHub at load time and rendered it with Marked.js, so editing a README updated the live site with no rebuild. A clever trick, but it forced every kind of content — including things that weren't code projects at all — into a markdown-shaped box. Kept live and unmodified as a deliberate before-and-after against this rebuild.",
+    "tech": ["HTML", "CSS", "JavaScript", "Marked.js"],
+    "repo_url": "https://github.com/TomADavis/old-portfolio-website",
+    "thumbnail": "images/projects/portfolio-original.png",
+    "embed_mode": "iframe",
+    "embed_url": "https://tomadavis.github.io/old-portfolio-website",
+    "roadmap_note": null
+  },
+  {
+    "id": "pokemon-outcome-modelling",
+    "title": "Predictive Pokémon Outcome Modelling",
+    "tagline": "ML classifier for 1v1 Pokémon battles",
+    "description": "A machine learning project exploring what predicts the outcome of a one-on-one Pokémon battle. Built a logistic regression classifier over ~27,000 simulated Generation 1 matchups, using base stats and feature engineering (Cartesian products of stat pairs) to predict a winner, then evaluated it with a confusion matrix.",
+    "tech": ["Python", "pandas", "scikit-learn", "matplotlib", "seaborn"],
+    "repo_url": "https://github.com/TomADavis/Predictive-Pokemon-Outcome-Modelling",
+    "thumbnail": "images/projects/pokemon-outcome-modelling.png",
+    "embed_mode": "fallback",
+    "embed_url": null,
+    "roadmap_note": "Made before I had come up with the idea to add online web-demo, sorry!!"
+  },
+  {
+    "id": "bingo-board",
+    "title": "Bingo Board",
+    "tagline": "Custom bingo boards for game nights with friends",
+    "description": "A digital bingo board for tracking the funny, frustrating, and recurring events that happen during group gaming sessions. Board options are editable in a text file, squares are randomised on each launch, and clicking a square marks it with a gold cross.",
+    "tech": ["Python", "pygame"],
+    "repo_url": "https://github.com/TomADavis/Bingo-Board",
+    "thumbnail": "images/projects/bingo-board.png",
+    "embed_mode": "fallback",
+    "embed_url": null,
+    "roadmap_note": "Made before I had come up with the idea to add online web-demo, sorry!!"
+  },
+  {
+    "id": "portfolio-rebuild",
+    "title": "This Portfolio Website (Rebuild)",
+    "tagline": "The site you're viewing right now",
+    "description": "A full rebuild of my personal site as a new repo, kept separate from the original so the growth between them stays visible. Content is data-driven (JSON files feeding experience/education/project pages) rather than hardcoded markup, and I built a self-service admin tool so I can add new entries without touching HTML or CSS. The hub itself is a Friv/CoolMathGames-style project player.",
+    "tech": ["HTML", "CSS", "JavaScript", "JSON"],
+    "repo_url": null,
+    "thumbnail": "images/projects/portfolio-rebuild.png",
+    "embed_mode": "fallback",
+    "embed_url": null,
+    "roadmap_note": null
+  }
+]

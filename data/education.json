@@ -1,0 +1,42 @@
+[
+  {
+    "institution": "Queen Mary University of London",
+    "course": "BSc Mathematics and Statistics",
+    "course_note": "Started on BSc Mathematics and am in the process of transferring to BSc Mathematics and Statistics — every module taken so far is shared between both courses.",
+    "dates": "2024 – 2027",
+    "classification_weights": {
+      "First Year": 10,
+      "Second Year": 30,
+      "Final Year": 60
+    },
+    "years": [
+      {
+        "label": "First Year",
+        "level": 4,
+        "modules": [
+          { "code": "MTH4000", "name": "Programming in Python I", "credits": 15, "mark": 92.80, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH4104", "name": "Introduction in Algebra", "credits": 15, "mark": 92.00, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH4213", "name": "Numbers, Sets and Functions", "credits": 15, "mark": 80.90, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH4215", "name": "Vectors and Matrices", "credits": 15, "mark": 94.40, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH4300", "name": "Introduction to Analysis with Calculus", "credits": 30, "mark": 89.80, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH4500", "name": "Probability and Statistics I", "credits": 30, "mark": 79.48, "grade": "A - PASS", "outcome": "PASSED" }
+        ]
+      },
+      {
+        "label": "Second Year",
+        "level": 5,
+        "modules": [
+          { "code": "MTH5005", "name": "Programming in Python II", "credits": 15, "mark": 92.90, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH5104", "name": "Convergence and Continuity", "credits": 15, "mark": 88.80, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH5105", "name": "Differential and Integral Analysis", "credits": 15, "mark": 77.60, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH5112", "name": "Linear Algebra I", "credits": 15, "mark": 81.90, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH5115", "name": "Linear Optimisation and Game Theory", "credits": 15, "mark": 85.60, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH5120", "name": "Statistical Modelling", "credits": 15, "mark": 82.75, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH5123", "name": "Differential Equations", "credits": 15, "mark": 87.50, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH5129", "name": "Probability and Statistics II", "credits": 15, "mark": 88.30, "grade": "A - PASS", "outcome": "PASSED" },
+          { "code": "MTH5205", "name": "Professional Skills for Mathematicians", "credits": 0, "mark": null, "grade": null, "outcome": "PASSED" }
+        ]
+      }
+    ]
+  }
+]

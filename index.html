@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tom Davis — Portfolio</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/hub.css">
+</head>
+<body>
+
+<nav class="page-nav">
+  <a class="brand" href="index.html">Tom Davis</a>
+  <div class="links">
+    <a href="index.html" aria-current="page">Hub</a>
+    <a href="experience.html">Experience</a>
+    <a href="education.html">Education</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Portfolio</div>
+  <h1>Hi, I'm Tom.</h1>
+  <p>I am currently a Third year Mathematics and Statistics student at QMUL graduating 2027.</p>
+  <p>I wanted to showcase my coding journey in a nostalgic way. Pick a project below and it'll load right into the screen like the game portals I grew up on.</p>
+  <div class="hero-links">
+    <a href="experience.html">Work &amp; volunteering →</a>
+    <a href="education.html">Education →</a>
+  </div>
+</div>
+
+<section class="player" id="player">
+  <div class="player-frame">
+    <div class="player-titlebar">
+      <span class="player-title" id="player-title">Select a project below</span>
+      <div class="player-controls">
+        <button id="btn-fullscreen" title="Fullscreen" disabled>⛶</button>
+        <button id="btn-back" title="Back to menu" disabled>✕</button>
+      </div>
+    </div>
+    <div class="player-screen" id="player-screen">
+      <div class="player-placeholder">Pick a project below to load it here</div>
+    </div>
+  </div>
+  <div class="player-strip" id="player-strip"></div>
+</section>
+
+<script src="js/player.js"></script>
+
+</body>
+</html>

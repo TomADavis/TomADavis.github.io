@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience — Thomas Davis</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<nav class="page-nav">
+  <a class="brand" href="index.html">Tom Davis</a>
+  <div class="links">
+    <a href="index.html">Hub</a>
+    <a href="experience.html" aria-current="page">Experience</a>
+    <a href="education.html">Education</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow">Track record</div>
+  <h1>Work &amp; volunteering</h1>
+  <p>Roles where I've shown up, contributed, and learned something outside of a classroom or codebase.</p>
+</div>
+
+<div class="timeline" id="timeline"></div>
+
+<script>
+fetch('data/experience.json')
+  .then(res => res.json())
+  .then(entries => {
+    const container = document.getElementById('timeline');
+
+    if (!entries || entries.length === 0) {
+      container.outerHTML = `<div class="empty-state">
+        Nothing added yet. Fill this in via <code>admin.html</code>, export
+        <code>experience.json</code>, and drop it into <code>/data</code>.
+      </div>`;
+      return;
+    }
+
+    container.innerHTML = entries.map(entry => `
+      <div class="entry-card">
+        <span class="tag">${entry.type === 'volunteering' ? 'Volunteering' : 'Work'}</span>
+        <div class="entry-top">
+          <h3>${entry.role || 'Untitled role'} <span class="org">— ${entry.organisation || ''}</span></h3>
+          <span class="dates">${entry.dates || ''}</span>
+        </div>
+        ${entry.bullets && entry.bullets.length ? `<ul>${entry.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
+      </div>
+    `).join('');
+  })
+  .catch(() => {
+    document.getElementById('timeline').outerHTML = `<div class="empty-state">
+      Couldn't load <code>data/experience.json</code>. Make sure the file exists
+      in the <code>/data</code> folder next to this page.
+    </div>`;
+  });
+</script>
+
+</body>
+</html>

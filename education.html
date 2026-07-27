@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education — Thomas Davis</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<nav class="page-nav">
+  <a class="brand" href="index.html">Tom Davis</a>
+  <div class="links">
+    <a href="index.html">Hub</a>
+    <a href="experience.html">Experience</a>
+    <a href="education.html" aria-current="page">Education</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow">Academic record</div>
+  <h1>Education</h1>
+  <p>What I've studied, and how it's gone so far.</p>
+</div>
+
+<div class="timeline" id="timeline"></div>
+
+<script>
+function creditWeightedAverage(modules) {
+  const graded = modules.filter(m => m.mark !== null && m.mark !== undefined);
+  const credits = graded.reduce((s, m) => s + (m.credits || 0), 0);
+  if (credits === 0) return null;
+  const weighted = graded.reduce((s, m) => s + (m.credits || 0) * m.mark, 0);
+  return weighted / credits;
+}
+
+function renderModuleTable(year) {
+  const avg = creditWeightedAverage(year.modules);
+  return `
+    <div class="year-block">
+      <div class="year-heading">
+        <h4>${year.label}</h4>
+        ${avg !== null ? `<span class="year-avg">${avg.toFixed(2)}% credit-weighted avg</span>` : ''}
+      </div>
+      <div class="module-table-wrap">
+        <table class="module-table">
+          <thead>
+            <tr><th>Code</th><th>Module</th><th>Credits</th><th>Mark</th></tr>
+          </thead>
+          <tbody>
+            ${year.modules.map(m => `
+              <tr>
+                <td>${m.code || ''}</td>
+                <td>${m.name || ''}</td>
+                <td>${m.credits ?? ''}</td>
+                <td>${m.mark !== null && m.mark !== undefined ? m.mark.toFixed(2) + '%' : '—'}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function renderDegreeProgress(entry) {
+  const weights = entry.classification_weights || {};
+  let weightedToDate = 0;
+  let maxToDate = 0;
+  let totalCredits = 0;
+
+  entry.years.forEach(year => {
+    totalCredits += year.modules.reduce((s, m) => s + (m.credits || 0), 0);
+    const avg = creditWeightedAverage(year.modules);
+    const weight = weights[year.label];
+    if (weight != null && avg !== null) {
+      weightedToDate += (weight / 100) * avg;
+      maxToDate += weight;
+    }
+  });
+
+  const progressBar = maxToDate > 0 ? `
+    <div class="degree-progress">
+      <div class="progress-track">
+        <div class="progress-fill" style="width:${weightedToDate}%"></div>
+        <div class="progress-marker" style="left:${maxToDate}%" title="Ceiling until remaining years' results are in"></div>
+      </div>
+      <div class="progress-caption">
+        ${weightedToDate.toFixed(2)} / 100 weighted so far — capped at ${maxToDate} until the remaining ${100 - maxToDate}% of the classification is decided
+      </div>
+    </div>
+  ` : '';
+
+  return `
+    <div class="degree-stats">
+      <div class="stat"><span class="stat-value">${totalCredits}</span><span class="stat-label">Credits earned</span></div>
+      <div class="stat"><span class="stat-value">${weightedToDate.toFixed(2)}</span><span class="stat-label">Weighted % to date</span></div>
+    </div>
+    ${progressBar}
+    ${entry.years.map(renderModuleTable).join('')}
+  `;
+}
+
+function renderEntry(entry) {
+  const hasYears = entry.years && entry.years.length;
+  return `
+    <div class="entry-card degree-card">
+      <div class="entry-top">
+        <h3>${entry.course || 'Untitled course'} <span class="org">— ${entry.institution || ''}</span></h3>
+        <span class="dates">${entry.dates || ''}</span>
+      </div>
+      ${entry.course_note ? `<p class="course-note">${entry.course_note}</p>` : ''}
+      ${hasYears
+        ? renderDegreeProgress(entry)
+        : `${entry.grade ? `<div class="grade">${entry.grade}</div>` : ''}
+           ${entry.modules && entry.modules.length ? `<ul>${entry.modules.map(m => `<li>${m}</li>`).join('')}</ul>` : ''}`
+      }
+    </div>
+  `;
+}
+
+fetch('data/education.json')
+  .then(res => res.json())
+  .then(entries => {
+    const container = document.getElementById('timeline');
+
+    if (!entries || entries.length === 0) {
+      container.outerHTML = `<div class="empty-state">
+        Nothing added yet. Fill this in via <code>admin.html</code>, export
+        <code>education.json</code>, and drop it into <code>/data</code>.
+      </div>`;
+      return;
+    }
+
+    container.innerHTML = entries.map(renderEntry).join('');
+  })
+  .catch(() => {
+    document.getElementById('timeline').outerHTML = `<div class="empty-state">
+      Couldn't load <code>data/education.json</code>. Make sure the file exists
+      in the <code>/data</code> folder next to this page.
+    </div>`;
+  });
+</script>
+
+</body>
+</html>
