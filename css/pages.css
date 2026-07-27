@@ -96,6 +96,17 @@
 
 .entry-card ul li { margin-bottom: 0.35rem; }
 
+.entry-card .entry-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.entry-card .entry-link:hover { text-decoration: underline; }
+
 .entry-card .grade {
   font-family: var(--font-mono);
   color: var(--accent);

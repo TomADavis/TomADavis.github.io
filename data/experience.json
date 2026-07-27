@@ -4,6 +4,8 @@
     "organisation": "Panthers Field Archery Club",
     "type": "volunteering",
     "dates": "",
+    "link_url": "https://www.pantherfieldarchery.club",
+    "link_label": "Live site →",
     "bullets": [
       "Redesigned the beginners' course sign-up flow with a direct home-page link, selling out a 10-slot cohort in 7 hours",
       "Built and ran the online membership join process, handling around 25 join emails a week as the club passed 100 members",

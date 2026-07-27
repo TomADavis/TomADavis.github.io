@@ -48,6 +48,7 @@ fetch('data/experience.json')
           <span class="dates">${entry.dates || ''}</span>
         </div>
         ${entry.bullets && entry.bullets.length ? `<ul>${entry.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
+        ${entry.link_url ? `<a class="entry-link" href="${entry.link_url}" target="_blank" rel="noopener noreferrer">${entry.link_label || 'Live site →'}</a>` : ''}
       </div>
     `).join('');
   })
