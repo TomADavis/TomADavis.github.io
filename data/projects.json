@@ -13,7 +13,7 @@
   },
   {
     "id": "portfolio-original",
-    "title": "This Portfolio Website (Original)",
+    "title": "Original Portfolio Website",
     "tagline": "The first version of this site — kept as a before-and-after",
     "description": "The original version of my portfolio: a single scrolling page where each project section fetched its README straight from GitHub at load time and rendered it with Marked.js, so editing a README updated the live site with no rebuild. A clever trick, but it forced every kind of content — including things that weren't code projects at all — into a markdown-shaped box. Kept live and unmodified as a deliberate before-and-after against this rebuild.",
     "tech": ["HTML", "CSS", "JavaScript", "Marked.js"],
